@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="front.css">
+</head>
+<body>
+    <input type="text" placeholder="Type">
+    <script>
+
+        input=document.querySelector('input');
+        input.addEventListener('keydown',function(e){
+            var newdiv=document.createElement("div");
+            
+            var array=[];
+            for (var prop in e) {
+                const c=[prop,e[prop]]
+                array.push(c.join(": "));
+            }
+            
+            console.log(array);
+            array.forEach(function(item) {
+                var divLine = document.createElement("div");
+                divLine.textContent = item;
+                newdiv.appendChild(divLine);
+            });
+
+            newdiv.style.backgroundColor = "black";
+            newdiv.style.padding = "10px";
+            newdiv.style.marginTop = "10px";
+            document.getElementById("container").appendChild(newdiv);
+            
+        })
+    </script>
+    <div>
+        <p>TYPE ANY KEY AND GET OBJECT OF IT!</p>
+    </div>
+    <div id="container">
+    </div>
+    <div id="ob"></div>
+    
+</body>
+</html>
